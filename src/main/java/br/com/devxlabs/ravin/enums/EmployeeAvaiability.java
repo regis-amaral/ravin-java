@@ -1,6 +1,6 @@
 package br.com.devxlabs.ravin.enums;
 
-public enum EmployeeAviability {
+public enum EmployeeAvaiability {
 	
 	BUSY("BUSY"),
 	AVAILABLE("AVAILABLE");
@@ -8,7 +8,7 @@ public enum EmployeeAviability {
 
 	private String description = "";
 
-	EmployeeAviability(String description) {
+	EmployeeAvaiability(String description) {
         this.description = description;
     }
 

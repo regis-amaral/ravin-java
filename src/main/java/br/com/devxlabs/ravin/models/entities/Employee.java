@@ -1,32 +1,56 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import java.util.Date;
 
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
+import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Employee extends Person {
 
-	private int employeeId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column(unique = true, nullable = false)
 	private String rg;
-	private MeritalStatus meritalStatus;
+
+	@Enumerated(EnumType.STRING)
+	private MaritalStatus meritalStatus;
+
+	@Enumerated(EnumType.STRING)
 	private Schooling schooling;
+
+	@Enumerated(EnumType.STRING)
 	private Responsibility responsability;
+
+	@Column(unique = true, nullable = false)
 	private int pis;
+	
+
 	private Date admissionDate;
 	private Date resignationDate;
-	private EmployeeAviability employeeAviability;
+
+	@Enumerated(value = EnumType.STRING)
+	private EmployeeAvaiability employeeAviability;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employeeId, String rg, MeritalStatus meritalStatus, Schooling schooling, Responsibility responsability,
-			Date admissionDate, Date resignationDate, EmployeeAviability employeeAviability, int pis) {
+	public Employee(int employeeId, String rg, MaritalStatus meritalStatus, Schooling schooling, Responsibility responsability,
+			Date admissionDate, Date resignationDate, EmployeeAvaiability employeeAviability, int pis) {
 		super();
-		this.employeeId = employeeId;
+		this.id = employeeId;
 		this.rg = rg;
 		this.meritalStatus = meritalStatus;
 		this.schooling = schooling;
@@ -37,12 +61,12 @@ public class Employee extends Person {
 		this.pis = pis;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setId(int employeeId) {
+		this.id = employeeId;
 	}
 
 	public String getRg() {
@@ -53,11 +77,11 @@ public class Employee extends Person {
 		this.rg = rg;
 	}
 
-	public MeritalStatus getMeritalStatus() {
+	public MaritalStatus getMeritalStatus() {
 		return meritalStatus;
 	}
 
-	public void setMeritalStatus(MeritalStatus meritalStatus) {
+	public void setMeritalStatus(MaritalStatus meritalStatus) {
 		this.meritalStatus = meritalStatus;
 	}
 
@@ -101,11 +125,11 @@ public class Employee extends Person {
 		this.resignationDate = resignationDate;
 	}
 
-	public EmployeeAviability getEmployeeAviability() {
+	public EmployeeAvaiability getEmployeeAviability() {
 		return employeeAviability;
 	}
 
-	public void setEmployeeAviability(EmployeeAviability employeeAviability) {
+	public void setEmployeeAviability(EmployeeAvaiability employeeAviability) {
 		this.employeeAviability = employeeAviability;
 	}
 

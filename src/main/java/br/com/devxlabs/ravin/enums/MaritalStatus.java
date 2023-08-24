@@ -1,6 +1,6 @@
 package br.com.devxlabs.ravin.enums;
 
-public enum MeritalStatus {
+public enum MaritalStatus {
 	
 	SINGLE("SINGLE"),
 	MARRIED("MARRIED"),
@@ -10,7 +10,7 @@ public enum MeritalStatus {
 	
 	private String description = "";
 
-	MeritalStatus(String description) {
+	MaritalStatus(String description) {
         this.description = description;
     }
 
